@@ -355,11 +355,16 @@ module.exports = function (grunt) {
         'concurrent:test',
         'autoprefixer',
         'connect:test',
+        'connect:livereload',
         'karma:unit'
     ]);
 
     grunt.registerTask('test:e2e', [
         'clean:server',
+//        'concurrent:server',
+//        'open',
+//        'livereload-start',
+//        'connect:livereload',
         'karma:e2e'
     ]);
 
