@@ -7,9 +7,8 @@ describe("Show validation messages in popovers", function ()
         it("should display popover with message", function ()
         {
             browser().navigateTo("/");
-            pause();
             input("credentials.email").enter("aaa");
-            pause();
+            expect(element('.popover.error').count()).toBe(1);
         });
     });
 });
