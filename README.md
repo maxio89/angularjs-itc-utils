@@ -10,7 +10,7 @@ angularjs-itc-utils
 <p> https://travis-ci.org/maxio89/angularjs-itc-utils </p>
 
 <p>http://newtriks.com/2013/06/11/automating-angularjs-with-yeoman-grunt-and-bower/  </p>
-<p>(http://newtriks.com/2013/04/26/how-to-test-an-angularjs-directive/ </p>
+<p>http://newtriks.com/2013/04/26/how-to-test-an-angularjs-directive/ </p>
 
 
 

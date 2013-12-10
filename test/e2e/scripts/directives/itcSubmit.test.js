@@ -11,13 +11,9 @@ describe("itcSubmit directive", function ()
     {
         beforeEach(function ()
         {
-            /*Is that a correct way to make a sure that a particular condition has been met before each test?*/
-            it("should has empty inputs", function ()
-            {
-                expect(element('#email').val()).toBe('');
-                expect(element('#password').val()).toBe('');
-                expect(element('#passwordConfirmation').val()).toBe('');
-            });
+            expect(element('#email').val()).toBe('');
+            expect(element('#password').val()).toBe('');
+            expect(element('#passwordConfirmation').val()).toBe('');
         });
 
         xit("should be no evaluation of submit function", function ()
