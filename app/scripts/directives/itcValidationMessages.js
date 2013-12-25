@@ -87,6 +87,9 @@ angular.module('angularjsItcUtilsApp').directive('itcValidationMessages', functi
 //                        tooltip.hasClass('in')
                         if (!angular.isUndefined(tooltip)) {
                             replaceMessage(popover, error.key);
+                            if (!tooltip.hasClass('error')) {
+                                tooltip.addClass('error');
+                            }
                             showMessage(input);
                         }
                     }
