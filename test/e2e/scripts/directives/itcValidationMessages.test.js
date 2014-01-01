@@ -14,7 +14,6 @@ describe("itcValidationMessages directive", function ()
         it("should be no messages", function ()
         {
             expect(element('#email.ng-pristine').count()).toBe(1);
-//            expect($('#email').focus()).toBeFocused();
             expect(element('.popover.error').count()).toBe(0);
         });
     });

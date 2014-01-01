@@ -16,12 +16,6 @@ describe("itcSubmit directive", function ()
             expect(element('#passwordConfirmation').val()).toBe('');
         });
 
-        xit("should be no evaluation of submit function", function ()
-        {
-            /*TODO How to check it, use bind or catch some event?*/
-//            Not implemented yet!
-        });
-
         it("should lost the pristine state", function ()
         {
             expect(element('#registerForm').attr('class')).not().toContain('ng-pristine');
@@ -39,17 +33,17 @@ describe("itcSubmit directive", function ()
             expect(element('#passwordConfirmation').attr('class')).toContain('ng-dirty');
         });
 
-        xit("should emit event ...", function ()
-        {
-            /*TODO How to check it, inject $scope and $on?*/
-            //            Not implemented yet!
-        });
-
         xdescribe("when inputs has errors", function ()
         {
             it("should be focused first of them", function ()
             {
-//                expect($('#email').focus()).toBeFocused();
+                console.info(element("#email").html());
+//                pause();
+//                element("#email").query(function(elements, done) {
+//                    elements.focus();
+//                    done();
+//                });
+//                expect(element('#email')).toBeFocused();
             });
         });
     });

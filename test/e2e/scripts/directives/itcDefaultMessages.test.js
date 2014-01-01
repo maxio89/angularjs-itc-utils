@@ -12,7 +12,6 @@ describe("itcDefaultMessages directive", function ()
         it("should be no messages", function ()
         {
             expect(element('#email.ng-pristine').count()).toBe(1);
-//            expect($('#email').focus()).toBeFocused();
             expect(element('.popover').count()).toBe(0);
         });
     });
@@ -21,7 +20,10 @@ describe("itcDefaultMessages directive", function ()
     {
         it("should display popover with message", function ()
         {
-            input("credentials.email").enter("");
+            element('#email').query(function(elements, done) {
+                elements.focus();
+                done();
+            });
             expect(element('.popover').count()).toBe(1);
         });
     });
