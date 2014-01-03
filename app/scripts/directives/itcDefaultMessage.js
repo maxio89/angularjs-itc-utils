@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('angularjsItcUtilsApp').directive('itcDefaultMessages', function ()
+angular.module('angularjsItcUtilsApp').directive('itcDefaultMessage', function ()
 {
     return {
         restrict: 'A',
@@ -36,7 +36,8 @@ angular.module('angularjsItcUtilsApp').directive('itcDefaultMessages', function 
 
             element.bind("blur", function ()
             {
-                if (field.$valid || field.$pristine) {
+                var popover = getPopoverObject(input);
+                if (!angular.isUndefined(popover) && !popover.$tip.hasClass('error')) {
                     hideMessage(input);
                 }
             });
@@ -49,14 +50,14 @@ angular.module('angularjsItcUtilsApp').directive('itcDefaultMessages', function 
                     delay: { show: 200, hide: 200 },
                     animation: true,
                     /*TODO Message customization */
-                    content: attributes.itcDefaultMessages,
+                    content: attributes.itcDefaultMessage,
                     template: '<div class="popover"><div class="arrow"></div><h3 class="popover-title"></h3><div class="popover-content"></div></div>'
                 });
             };
 
             var replaceMessage = function (popover)
             {
-                popover.options.content = attributes.itcDefaultMessages;
+                popover.options.content = attributes.itcDefaultMessage;
             };
 
             var showMessage = function (input)

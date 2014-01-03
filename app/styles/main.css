@@ -7351,15 +7351,24 @@ form .popover-content {
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #d59392;
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #d59392;
 }
-#registerForm2 input.ng-valid.ng-dirty:not(:focus) {
+#registerForm2 input.ng-valid.ng-dirty:not(:focus),
+#registerForm3 input.ng-valid.ng-dirty:not(:focus) {
   border-color: #468847;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
 }
-#registerForm2 input.ng-invalid.ng-dirty:not(:focus) {
+#registerForm2 input.ng-invalid.ng-dirty:not(:focus),
+#registerForm3 input.ng-invalid.ng-dirty:not(:focus) {
   border-color: #b94a48;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+#registerForm3 input + .popover + .alert.alert-danger,
+#registerForm3 input + .alert.alert-danger {
+  padding: 6px 12px;
+  margin-bottom: 15px;
+  margin-top: -6px;
+  font-size: 12px;
 }
 #login-holder .panel {
   position: relative;

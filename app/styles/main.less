@@ -79,7 +79,7 @@ form .popover-content {
   }
 }
 
-#registerForm2 {
+#registerForm2, #registerForm3 {
   input.ng-valid.ng-dirty:not(:focus) {
     border-color: #468847;
     -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
@@ -90,6 +90,16 @@ form .popover-content {
     border-color: #b94a48;
     -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  }
+}
+
+#registerForm3 {
+  input + .popover + .alert.alert-danger,
+  input + .alert.alert-danger {
+    padding: 6px 12px;
+    margin-bottom: 15px;
+    margin-top: -6px;
+    font-size: 12px;
   }
 }
 

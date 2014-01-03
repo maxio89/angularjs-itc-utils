@@ -12,6 +12,8 @@ angular.module('angularjsItcUtilsApp').directive('itcValidationMessages', functi
 
             var event = attributes.itcValidationMessagesEvent;
 
+            var type = attributes.itcValidationMessagesType;
+
             // Get the form object.
             var formName = attributes.name;
             var form = scope[formName];
@@ -71,42 +73,62 @@ angular.module('angularjsItcUtilsApp').directive('itcValidationMessages', functi
                 var error = {};
                 /* TODO Maybe there is a better way to get access to that input */
                 var input = angular.element(element.context[fieldName]);
-                var popover = getPopoverObject(input);
-                var tooltip;
-                if (field.$valid && !angular.isUndefined(popover)) {
-                    hideMessage(input);
-                    tooltip = popover.$tip;
-                    tooltip.removeClass('error');
-                } else if (field.$invalid && field.$dirty) {
-
-                    angular.forEach(field.$error, function (value, key)
-                    {
-                        if (value && $.isEmptyObject(error)) {
-                            error = {
-                                value: value,
-                                key: key
-                            };
-                            /*TODO How to break the loop?*/
-//                            return;
-                        }
-                    });
-                    if (angular.isUndefined(popover)) {
-                        createMessage(input, error.key);
-                        showMessage(input);
-                    } else {
+                if (angular.isUndefined(type)) {
+                    var popover = getPopoverObject(input);
+                    var tooltip;
+                    if (field.$valid && !angular.isUndefined(popover)) {
+                        hidePopoverMessage(input);
                         tooltip = popover.$tip;
-                        if (!angular.isUndefined(tooltip)) {
-                            replaceMessage(popover, getMessageContent(input, error.key));
-                            if (!tooltip.hasClass('error')) {
-                                tooltip.addClass('error');
+                        tooltip.removeClass('error');
+                    } else if (field.$invalid && field.$dirty) {
+                        error = getFirstError(field);
+                        if (angular.isUndefined(popover)) {
+                            createPopoverMessage(input, error.key);
+                            showPopoverMessage(input);
+                        } else {
+                            tooltip = popover.$tip;
+                            if (!angular.isUndefined(tooltip)) {
+                                replacePopoverMessage(popover, getMessageContent(input, error.key));
+                                if (!tooltip.hasClass('error')) {
+                                    tooltip.addClass('error');
+                                }
+                                showPopoverMessage(input);
                             }
-                            showMessage(input);
+                        }
+                    }
+                } else if (type === 'block') {
+                    var block = getBlockObject(input);
+                    if (field.$valid && block.length !== 0) {
+                        hideBlockMessage(block);
+                    } else if (field.$invalid && field.$dirty) {
+                        error = getFirstError(field);
+                        if (block.length === 0) {
+                            createBlockMessage(input, error.key);
+                        } else {
+                            replaceBlockMessage(block, getMessageContent(input, error.key));
+                            showBlockMessage(block);
                         }
                     }
                 }
 
             };
-            var createMessage = function (input, key)
+
+            var getFirstError = function (field)
+            {
+                var error = {};
+                angular.forEach(field.$error, function (value, key)
+                {
+                    if (value && $.isEmptyObject(error)) {
+                        error = {
+                            value: value,
+                            key: key
+                        };
+                    }
+                });
+                return error;
+            };
+
+            var createPopoverMessage = function (input, key)
             {
                 input.popover({
                     placement: 'right',
@@ -119,17 +141,17 @@ angular.module('angularjsItcUtilsApp').directive('itcValidationMessages', functi
                 });
             };
 
-            var replaceMessage = function (popover, newMessage)
+            var replacePopoverMessage = function (popover, newMessage)
             {
                 popover.options.content = newMessage;
             };
 
-            var showMessage = function (input)
+            var showPopoverMessage = function (input)
             {
                 input.popover('show');
             };
 
-            var hideMessage = function (input)
+            var hidePopoverMessage = function (input)
             {
                 input.popover('hide');
             };
@@ -147,7 +169,32 @@ angular.module('angularjsItcUtilsApp').directive('itcValidationMessages', functi
                 } else {
                     return message = customMessage;
                 }
-            }
+            };
+
+            var createBlockMessage = function (input, key)
+            {
+                input.after('<div class="alert alert-danger alert-' + input.attr('name') + '">' + getMessageContent(input, key) + '</div>');
+            };
+
+            var replaceBlockMessage = function (block, newMessage)
+            {
+                block.html(newMessage);
+            };
+
+            var showBlockMessage = function (block)
+            {
+                block.show();
+            };
+
+            var hideBlockMessage = function (block)
+            {
+                block.hide();
+            };
+
+            var getBlockObject = function (input)
+            {
+                return input.parent().find('.alert-' + input.attr('name'));
+            };
 
         }
     };
