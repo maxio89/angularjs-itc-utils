@@ -1,0 +1,64 @@
+<div id="login-holder" class="row">
+    <div class="col-md-offset-4 col-md-4">
+        <div class="panel panel-default">
+            <div class="panel-heading"><h4>IT Crowd Utils {{registered}} </h4></div>
+            <div class="panel-body">
+                <ul class="nav nav-tabs" id="tabs">
+                    <li class="active"><a href="#onKeyup" onclick="return false" data-toggle="tab">On keyup</a></li>
+                    <li><a href="#onBlur" onclick="return false" data-toggle="tab">On blur</a></li>
+                    <li><a href="#underInput" onclick="return false" data-toggle="tab">Under input</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane fade in active" id="onKeyup">
+                        <form id="registerForm" novalidate="" ng-hide="registered" itc-submit="register()" itc-validation-messages="" name="registerForm">
+                            <input id="email" type="email" name="email" class="form-control input-lg" ng-model="credentials.email" placeholder="email" ng-required="true" ng-minlength="3" ng-maxlength="18" itc-default-message="Email will be your login" minlength-message="Provide longer email">
+                            <input id="password" type="password" class="form-control input-lg" name="password" ng-model="credentials.password" itc-default-message="Enter your password" placeholder="password" ng-required="true" ng-minlength="3" ng-maxlength="6" minlength-message="Your password should has at least 3 characters" maxlength-message="Your password should has at most 6 characters">
+
+                            <input id="passwordConfirmation" type="password" class="form-control input-lg" name="passwordConfirmation" itc-default-message="Confirm password" ng-model="credentials.passwordConfirmation" placeholder="confirm password" required="" ng-required="true" ng-minlength="3" ng-maxlength="6" itc-equals="credentials.password" minlength-message="Your password should has at least 3 characters" maxlength-message="Your password should has at most 6 characters">
+
+                            <button id="submit" type="submit" class="btn btn-primary btn-lg btn-block">Sign up</button>
+                        </form>
+                        <div class="alert alert-info text-center" ng-show="registered">
+                            <strong>Registered successfully!</strong>
+                        </div>
+                        <button type="button" ng-show="registered" ng-click="tryAgain()" class="btn btn-primary btn-lg btn-block">Try again</button>
+
+                    </div>
+                    <div class="tab-pane fade" id="onBlur">
+                        <form id="registerForm2" ng-hide="registered" itc-submit="register()" itc-validation-messages="" name="registerForm2" itc-validation-messages-event="blur">
+                            <input id="email2" type="email" name="email2" class="form-control input-lg" ng-model="credentials2.email" placeholder="email" ng-required="true" ng-minlength="3" ng-maxlength="18" itc-default-message="Email will be your login" minlength-message="Provide longer email">
+                            <input id="password2" type="password" class="form-control input-lg" name="password2" ng-model="credentials2.password" placeholder="password" ng-required="true" ng-minlength="1" ng-maxlength="6">
+
+                            <input id="passwordConfirmation2" type="password" class="form-control input-lg" name="passwordConfirmation2" ng-model="credentials2.passwordConfirmation" placeholder="confirm password" required="" ng-required="true" ng-minlength="1" ng-maxlength="6" itc-equals="credentials2.password">
+
+                            <button id="submit2" type="submit" class="btn btn-primary btn-lg btn-block">Sign up</button>
+                        </form>
+                        <div class="alert alert-info text-center" ng-show="registered">
+                            <strong>Registered successfully!</strong>
+                        </div>
+                        <button type="button" ng-show="registered" ng-click="tryAgain()" class="btn btn-primary btn-lg btn-block">Try again</button>
+
+                    </div>
+                    <div class="tab-pane fade" id="underInput">
+                        <form id="registerForm3" ng-hide="registered" itc-submit="register()" itc-validation-messages="" name="registerForm3" itc-validation-messages-event="blur" itc-validation-messages-type="block">
+                            <input id="email3" type="email" name="email3" class="form-control input-lg" ng-model="credentials3.email" placeholder="email" ng-required="true" ng-minlength="3" ng-maxlength="18" minlength-message="Provide longer email">
+                            <input id="password3" type="password" class="form-control input-lg" name="password3" ng-model="credentials3.password" placeholder="password" ng-required="true" ng-minlength="1" ng-maxlength="6">
+
+                            <input id="passwordConfirmation3" type="password" class="form-control input-lg" name="passwordConfirmation3" ng-model="credentials3.passwordConfirmation" placeholder="confirm password" required="" ng-required="true" ng-minlength="1" ng-maxlength="6" itc-equals="credentials3.password">
+
+                            <button id="submit3" type="submit" class="btn btn-primary btn-lg btn-block">Sign up</button>
+                        </form>
+                        <div class="alert alert-info text-center" ng-show="registered">
+                            <strong>Registered successfully!</strong>
+                        </div>
+                        <button type="button" ng-show="registered" ng-click="tryAgain()" class="btn btn-primary btn-lg btn-block">Try again</button>
+
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="panel-footer"></div>
+        </div>
+    </div>
+</div>
