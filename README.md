@@ -22,7 +22,7 @@ Displays popovers as a descriptions to the inputs. Shows on the focus event and 
 <pre> <code class="html"> &lt;input itc-default-message="Enter your password"&gt;</code> </pre>
 
 ### itcValidationMessages
-Iterates through all inputs in form and displays validations messages.
+Iterates through all inputs in form and displays validations messages. Inputs should have a name attribute, because Angular doesn't bind their to the scope.
 ##### Usage:
 <pre> <code class="html"> &lt;form name="registerForm" itc-validation-messages&gt;</code> </pre>
 ##### Options:
