@@ -36,8 +36,7 @@ angular.module('angularjsItcUtilsApp').directive('itcDefaultMessage', function (
 
             element.bind("blur", function ()
             {
-                var popover = getPopoverObject(input);
-                if (!angular.isUndefined(popover) && !popover.$tip.hasClass('error')) {
+                if (field.$valid || field.$pristine) {
                     hideMessage(input);
                 }
             });
