@@ -2,6 +2,10 @@
 
 angular.module('angularjsItcUtilsApp').controller('MainCtrl', function ($scope)
 {
+    $scope.awesomeThings = [
+        'HTML5 Boilerplate', 'AngularJS', 'Karma'
+    ];
+
     $scope.credentials = {email: null, password: null, passwordConfirmation: null};
     $scope.credentials2 = {email: null, password: null, passwordConfirmation: null};
     $scope.credentials3 = {email: null, password: null, passwordConfirmation: null};
