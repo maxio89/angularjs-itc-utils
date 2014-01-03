@@ -34,7 +34,7 @@ angular.module('angularjsItcUtilsApp').directive('itcDefaultMessages', function 
                 }
             });
 
-            element.bind("blur", function (evt, args)
+            element.bind("blur", function ()
             {
                 if (field.$valid || field.$pristine) {
                     hideMessage(input);
