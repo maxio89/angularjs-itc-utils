@@ -25,7 +25,7 @@
 
                     </div>
                     <div class="tab-pane fade" id="onBlur">
-                        <form id="registerForm2" ng-hide="registered" itc-submit="register()" itc-validation-messages="" name="registerForm2" itc-validation-messages-event="blur">
+                        <form id="registerForm2" ng-hide="registered" itc-submit="register()" itc-submit-without-focus="" itc-validation-messages="" name="registerForm2" itc-validation-messages-event="blur">
                             <input id="email2" type="email" name="email2" class="form-control input-lg" ng-model="credentials2.email" placeholder="email" ng-required="true" ng-minlength="3" ng-maxlength="18" itc-default-message="Email will be your login" minlength-message="Provide longer email">
                             <input id="password2" type="password" class="form-control input-lg" name="password2" ng-model="credentials2.password" placeholder="password" ng-required="true" ng-minlength="1" ng-maxlength="6">
 
