@@ -43,9 +43,11 @@ angular.module('angularjsItcUtilsApp').directive('itcSubmit', function ()
                 // Do not continue if the form is invalid.
                 if (form.$invalid) {
                     scope.$apply();
-                    // Focus on the first field that is invalid
-                    element.find('.ng-invalid').first().focus();
-                    scope.$emit("formValidationErrors");
+                    if (angular.isUndefined(attributes.itcSubmitWithoutFocus)) {
+                        // Focus on the first field that is invalid
+                        element.find('.ng-invalid').first().focus();
+                    }
+                    scope.$emit("formValidationErrors", formName);
 
                 } else {
                     scope.$apply(attributes.itcSubmit);

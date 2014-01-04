@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('angularjsItcUtilsApp').directive('itcDefaultMessage', function ()
+angular.module('angularjsItcUtilsApp').directive('itcDefaultMessage', function ($timeout)
 {
     return {
         restrict: 'A',
@@ -16,7 +16,6 @@ angular.module('angularjsItcUtilsApp').directive('itcDefaultMessage', function (
 
             element.bind("focus", function (evt, args)
             {
-//                findErrors(args.field, args.fieldName);
                 var popover = getPopoverObject(input);
                 var tooltip;
                 if (field.$valid || field.$pristine) {
@@ -25,7 +24,6 @@ angular.module('angularjsItcUtilsApp').directive('itcDefaultMessage', function (
                         showMessage(input);
                     } else {
                         tooltip = popover.$tip;
-//                        tooltip.hasClass('in')
                         if (!angular.isUndefined(tooltip)) {
                             replaceMessage(popover);
                             showMessage(input);
@@ -36,9 +34,11 @@ angular.module('angularjsItcUtilsApp').directive('itcDefaultMessage', function (
 
             element.bind("blur", function ()
             {
-                if (field.$valid || field.$pristine) {
-                    hideMessage(input);
-                }
+                $timeout(function() {
+                    if (field.$valid || field.$pristine) {
+                        hideMessage(input);
+                    }
+                }, 100);
             });
 
             var createMessage = function (input)
@@ -46,9 +46,6 @@ angular.module('angularjsItcUtilsApp').directive('itcDefaultMessage', function (
                 input.popover({
                     placement: 'right',
                     trigger: 'manual',
-                    delay: { show: 200, hide: 200 },
-                    animation: true,
-                    /*TODO Message customization */
                     content: attributes.itcDefaultMessage,
                     template: '<div class="popover"><div class="arrow"></div><h3 class="popover-title"></h3><div class="popover-content"></div></div>'
                 });

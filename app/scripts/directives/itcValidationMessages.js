@@ -20,13 +20,17 @@ angular.module('angularjsItcUtilsApp').directive('itcValidationMessages', functi
 
             scope.$on("fieldValidationError", function (evt, args)
             {
-                findErrors(args.field, args.fieldName);
+                if (formName === args.formName) {
+                    findErrors(args.field, args.fieldName);
+                }
             });
 
 //                    On this event all fields in the form will be check
-            scope.$on("formValidationErrors", function ()
+            scope.$on("formValidationErrors", function (evt, data)
             {
-                checkFieldsValidity()
+                if (formName === data) {
+                    checkFieldsValidity()
+                }
             });
 
             angular.forEach(form, function (field, fieldName)
@@ -44,6 +48,7 @@ angular.module('angularjsItcUtilsApp').directive('itcValidationMessages', functi
                     }, function ()
                     {
                         scope.$emit("fieldValidationError", {
+                            formName: formName,
                             field: field,
                             fieldName: fieldName
                         });
@@ -74,17 +79,17 @@ angular.module('angularjsItcUtilsApp').directive('itcValidationMessages', functi
                 /* TODO Maybe there is a better way to get access to that input */
                 var input = angular.element(element.context[fieldName]);
                 if (angular.isUndefined(type)) {
-                    var popover = getPopoverObject(input);
+                    var popover = getPopover(input);
                     var tooltip;
                     if (field.$valid && !angular.isUndefined(popover)) {
-                        hidePopoverMessage(input);
+                        hidePopover(input);
                         tooltip = popover.$tip;
                         tooltip.removeClass('error');
                     } else if (field.$invalid && field.$dirty) {
                         error = getFirstError(field);
                         if (angular.isUndefined(popover)) {
-                            createPopoverMessage(input, error.key);
-                            showPopoverMessage(input);
+                            createPopover(input, error.key);
+                            showPopover(input);
                         } else {
                             tooltip = popover.$tip;
                             if (!angular.isUndefined(tooltip)) {
@@ -92,21 +97,26 @@ angular.module('angularjsItcUtilsApp').directive('itcValidationMessages', functi
                                 if (!tooltip.hasClass('error')) {
                                     tooltip.addClass('error');
                                 }
-                                showPopoverMessage(input);
+                                showPopover(input);
                             }
                         }
                     }
-                } else if (type === 'block') {
-                    var block = getBlockObject(input);
+                } else {
+                    var block;
+                    if (type !== 'block') {
+                        block = $(type + '-' + fieldName);
+                    } else {
+                        block = getBlock(input);
+                    }
                     if (field.$valid && block.length !== 0) {
-                        hideBlockMessage(block);
+                        hideBlock(block);
                     } else if (field.$invalid && field.$dirty) {
                         error = getFirstError(field);
                         if (block.length === 0) {
-                            createBlockMessage(input, error.key);
+                            createBlock(input, error.key);
                         } else {
                             replaceBlockMessage(block, getMessageContent(input, error.key));
-                            showBlockMessage(block);
+                            showBlock(block);
                         }
                     }
                 }
@@ -128,14 +138,11 @@ angular.module('angularjsItcUtilsApp').directive('itcValidationMessages', functi
                 return error;
             };
 
-            var createPopoverMessage = function (input, key)
+            var createPopover = function (input, key)
             {
                 input.popover({
                     placement: 'right',
                     trigger: 'manual',
-                    delay: { show: 200, hide: 200 },
-                    animation: true,
-                    /*TODO Message customization */
                     content: getMessageContent(input, key),
                     template: '<div class="popover error"><div class="arrow"></div><h3 class="popover-title"></h3><div class="popover-content"></div></div>'
                 });
@@ -146,17 +153,17 @@ angular.module('angularjsItcUtilsApp').directive('itcValidationMessages', functi
                 popover.options.content = newMessage;
             };
 
-            var showPopoverMessage = function (input)
+            var showPopover = function (input)
             {
                 input.popover('show');
             };
 
-            var hidePopoverMessage = function (input)
+            var hidePopover = function (input)
             {
                 input.popover('hide');
             };
 
-            var getPopoverObject = function (input)
+            var getPopover = function (input)
             {
                 return input.data('bs.popover');
             };
@@ -171,7 +178,7 @@ angular.module('angularjsItcUtilsApp').directive('itcValidationMessages', functi
                 }
             };
 
-            var createBlockMessage = function (input, key)
+            var createBlock = function (input, key)
             {
                 input.after('<div class="alert alert-danger alert-' + input.attr('name') + '">' + getMessageContent(input, key) + '</div>');
             };
@@ -181,17 +188,17 @@ angular.module('angularjsItcUtilsApp').directive('itcValidationMessages', functi
                 block.html(newMessage);
             };
 
-            var showBlockMessage = function (block)
+            var showBlock = function (block)
             {
                 block.show();
             };
 
-            var hideBlockMessage = function (block)
+            var hideBlock = function (block)
             {
                 block.hide();
             };
 
-            var getBlockObject = function (input)
+            var getBlock = function (input)
             {
                 return input.parent().find('.alert-' + input.attr('name'));
             };
