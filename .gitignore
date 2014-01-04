@@ -1,5 +1,5 @@
 node_modules
-dist
+dist/bower_components/font-awesome/src/
 .tmp
 app/bower_components
 .idea
