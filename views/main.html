@@ -1,15 +1,85 @@
-<div id="login-holder" class="row">
-    <div class="col-md-offset-4 col-md-4">
-        <div class="panel panel-default">
-            <div class="panel-heading"><h4>IT Crowd Utils {{registered}} </h4></div>
-            <div class="panel-body">
-                <ul class="nav nav-tabs" id="tabs">
-                    <li class="active"><a href="#onKeyup" onclick="return false" data-toggle="tab">On keyup</a></li>
-                    <li><a href="#onBlur" onclick="return false" data-toggle="tab">On blur</a></li>
-                    <li><a href="#underInput" onclick="return false" data-toggle="tab">Under input</a></li>
+<section class="section-intro">
+    <h1>Set of <a href="http://angularjs.org" target="_blank" class="angularjs-logo-link"><img src="../images/angularjs_logo.png"></a>ngularJS custom utilities
+    </h1>
+    <a href="https://github.com/maxio89/angularjs-itc-utils" class="github-fork-ribbon" target="_blank"><img src="https://s3.amazonaws.com/github/ribbons/forkme_right_white_ffffff.png" alt="Fork me on GitHub"></a>
+</section>
+<header>
+    <nav class="sticky-nav parallax" data-start="650" data-stop="6000">
+        <a href="#" class="itcrowd-link" target="_blank">
+        </a>
+        <a href="#" class="github-link" target="_blank">
+        </a>
+    </nav>
+</header>
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="affix-nav" id="affix-nav">
+                <ul class="nav" itc-scroll-to="">
+                    <li class="active">
+                        <a href="#overview">Overview</a>
+                    </li>
+                    <li class="">
+                        <a href="#example-1">Example 1</a>
+                    </li>
+                    <li class="">
+                        <a href="#example-2">Example 2</a>
+                    </li>
+                    <li class="">
+                        <a href="#example-3">Example 3</a>
+                    </li>
                 </ul>
-                <div class="tab-content">
-                    <div class="tab-pane fade in active" id="onKeyup">
+            </div>
+        </div>
+        <div class="col-md-9" role="main">
+            <section class="docs-section">
+                <div class="page-header">
+                    <h1 id="overview">Overview</h1>
+                </div>
+                <h3>What's inside</h3>
+                <p>Project is based on a <a href="http://getbootstrap.com">Bootstrap 3</a> and the latest version of <a href="http://angularjs.org">Angular</a>.</p>
+                <p>For now there are a few directives which help you with form validation.</p>
+                <ul>
+                    <li>
+                        <code>itcSubmit</code> - Prevents submitting form when is invalidate and can focuses first invalid input.
+                    </li>
+                    <li>
+                        <code>itcValidationMessages</code> - Displays validation messages on selected event or when form is submitting and invalid.
+                    </li>
+                    <li>
+                        <code>itcDefaultMessage</code> - Displays message which describes the input (e.g. what should be entered).
+                    </li>
+                    <li>
+                        <code>itcEquals</code> - Checks if two values on model are the same (e.g. matches passwords).
+                    </li>
+                    <li>
+                        <code>itcUnique</code> - Sends a request to the backend and validates if the value in the input is unique (e.g. unique email/login).
+                    </li>
+                </ul>
+                <p>For examples of usage you can preview a source code of this page or take a look at <a href="https://github.com/maxio89/angularjs-itc-utils">GitHub repo</a>.</p>
+                <h3>What next?</h3>
+
+                <p>In the near future will be added more useful directives, providers, etc.</p>
+
+                <p>Furthermore will be prepared more detailed documentation.</p>
+
+                <p>First, validations directives will be expanded to another and existing will be improved.</p>
+
+                <p>Next, perhaps some directives which are missing in <a href="http://angular-ui.github.io/bootstrap/">UI Bootstrap</a> will be written.</p>
+
+                <p>Any issues or questions please report on <a href="https://github.com/maxio89/angularjs-itc-utils/issues">GitHub page</a>.</p>
+            </section>
+            <section class="docs-section">
+                <div class="page-header">
+                    <h1 id="example-1">Example 1</h1>
+                </div>
+                <h3>Validation messages in popovers</h3>
+                <p>Watching when Angular changed the validation state of inputs and displays a popovers.</p>
+                <p>Submit action is unavailable until form is invalid, first invalid input is focusing.</p>
+                <p>When input has focus and no errors, there is a message in popover which should helps users fill it.</p>
+                <div class="panel panel-default">
+                    <div class="panel-heading"><h4>Welcome</h4></div>
+                    <div class="panel-body">
                         <form id="registerForm" novalidate="" ng-hide="registered" itc-submit="register()" itc-validation-messages="" name="registerForm">
                             <input id="email" type="email" name="email" class="form-control input-lg" ng-model="credentials.email" placeholder="email" ng-required="true" ng-minlength="3" ng-maxlength="18" itc-default-message="Email will be your login" minlength-message="Provide longer email">
                             <input id="password" type="password" class="form-control input-lg" name="password" ng-model="credentials.password" itc-default-message="Enter your password" placeholder="password" ng-required="true" ng-minlength="3" ng-maxlength="6" minlength-message="Your password should has at least 3 characters" maxlength-message="Your password should has at most 6 characters">
@@ -22,9 +92,21 @@
                             <strong>Registered successfully!</strong>
                         </div>
                         <button type="button" ng-show="registered" ng-click="tryAgain()" class="btn btn-primary btn-lg btn-block">Try again</button>
-
                     </div>
-                    <div class="tab-pane fade" id="onBlur">
+                    <div class="panel-footer"></div>
+                </div>
+            </section>
+            <section class="docs-section">
+                <div class="page-header">
+                    <h1 id="example-2">Example 2</h1>
+                </div>
+                <h3>Messages shown on blur event</h3>
+                <p>Similar example, but maybe more user-friendly.</p>
+                <p>Validation errors are shown after left the input.</p>
+                <p>Here there is no focus on the first invalid input after submit and there is no default message describing input.</p>
+                <div class="panel panel-default">
+                    <div class="panel-heading"><h4>Welcome</h4></div>
+                    <div class="panel-body">
                         <form id="registerForm2" ng-hide="registered" itc-submit="register()" itc-submit-without-focus="" itc-validation-messages="" name="registerForm2" itc-validation-messages-event="blur">
                             <input id="email2" type="email" name="email2" class="form-control input-lg" ng-model="credentials2.email" placeholder="email" ng-required="true" ng-minlength="3" ng-maxlength="18" itc-default-message="Email will be your login" minlength-message="Provide longer email">
                             <input id="password2" type="password" class="form-control input-lg" name="password2" ng-model="credentials2.password" placeholder="password" ng-required="true" ng-minlength="1" ng-maxlength="6">
@@ -37,9 +119,24 @@
                             <strong>Registered successfully!</strong>
                         </div>
                         <button type="button" ng-show="registered" ng-click="tryAgain()" class="btn btn-primary btn-lg btn-block">Try again</button>
-
+                        <div class="alert alert-info text-center" ng-show="registered">
+                            <strong>Registered successfully!</strong>
+                        </div>
+                        <button type="button" ng-show="registered" ng-click="tryAgain()" class="btn btn-primary btn-lg btn-block">Try again</button>
                     </div>
-                    <div class="tab-pane fade" id="underInput">
+                    <div class="panel-footer"></div>
+                </div>
+            </section>
+            <section class="docs-section">
+                <div class="page-header">
+                    <h1 id="example-3">Example 3</h1>
+                </div>
+                <h3>Messages shown under the inputs</h3>
+                <p>Errors are shown in created block near the inputs instead of popovers.</p>
+                <p>There is a also option, to set a selector to own markup.</p>
+                <div class="panel panel-default">
+                    <div class="panel-heading"><h4>Welcome</h4></div>
+                    <div class="panel-body">
                         <form id="registerForm3" ng-hide="registered" itc-submit="register()" itc-validation-messages="" name="registerForm3" itc-validation-messages-event="blur" itc-validation-messages-type="block">
                             <input id="email3" type="email" name="email3" class="form-control input-lg" ng-model="credentials3.email" placeholder="email" ng-required="true" ng-minlength="3" ng-maxlength="18" minlength-message="Provide longer email">
                             <input id="password3" type="password" class="form-control input-lg" name="password3" ng-model="credentials3.password" placeholder="password" ng-required="true" ng-minlength="1" ng-maxlength="6">
@@ -52,13 +149,188 @@
                             <strong>Registered successfully!</strong>
                         </div>
                         <button type="button" ng-show="registered" ng-click="tryAgain()" class="btn btn-primary btn-lg btn-block">Try again</button>
-
+                        <div class="alert alert-info text-center" ng-show="registered">
+                            <strong>Registered successfully!</strong>
+                        </div>
+                        <button type="button" ng-show="registered" ng-click="tryAgain()" class="btn btn-primary btn-lg btn-block">Try again</button>
                     </div>
+                    <div class="panel-footer"></div>
                 </div>
-
-
-            </div>
-            <div class="panel-footer"></div>
+            </section>
         </div>
     </div>
-</div>
+</div><a onclick="$.smoothScroll()" class="scroll-top-link"></a>
+<script>
+    function draw_canvas_background()
+    {
+        var section_one = $('.section-intro');
+        var width = section_one.width(), height = section_one.height(), ctx = document.getCSSCanvasContext("2d", "background_canvas", width,
+                height), x_spacing = 3, y_spacing = 3, x, y, fill, opacity;
+        for (x = 0; x < width; x += x_spacing) {
+            for (y = 0; y < height; y += y_spacing) {
+                fill = Math.floor(Math.random() * 255 + 64);
+                opacity = Math.random() / 2;
+                ctx.fillStyle = 'rgba(' + fill + ',' + fill + ',' + fill + ',' + opacity + ')';
+                ctx.fillRect(x, y, 1, 1);
+            }
+        }
+    }
+
+    var parallaxElements = [];
+    var windowHeight = 0;
+
+    // update vars used in parallax calculations on window resize
+    function updateParallaxVars()
+    {
+        windowHeight = $(window).height();
+
+        for (var id in parallaxElements) {
+            parallaxElements[id].initialOffsetY = $(parallaxElements[id].elm).offset().top;
+            parallaxElements[id].height = $(parallaxElements[id].elm).height();
+        }
+    }
+
+    function setUpParallax()
+    {
+        windowHeight = $(window).height();
+        $('html,body').scrollTop(1); // auto scroll to top
+        $(window).bind('scroll', function (e)
+        {
+            var val = $(this).scrollTop();
+            parallax(val);
+        });
+
+        // get parallax elements straight away as they wont change
+        // this will minimise DOM interactions on scroll events
+        $('.parallax').each(function ()
+        {
+            var $elm = $(this);
+            var id = $elm.data('id');
+            // use data-id as key
+            parallaxElements[id] = {
+                id: $elm.data('id'),
+                start: window.innerHeight,
+                stop: $elm.data('stop'),
+                speed: $elm.data('speed'),
+                elm: $elm[0],
+                initialOffsetY: $elm.offset().top,
+                height: $elm.height(),
+                width: $elm.outerWidth()
+            };
+        });
+    }
+
+    function parallax(scrollTop)
+    {
+        for (var id in parallaxElements) {
+            // distance of element from top of viewport
+            var viewportOffsetTop = parallaxElements[id].initialOffsetY - scrollTop;
+            // distance of element from bottom of viewport
+            var viewportOffsetBottom = windowHeight - viewportOffsetTop;
+            if ((viewportOffsetBottom >= parallaxElements[id].start) && (viewportOffsetBottom <= parallaxElements[id].stop)) {
+                // element is now active, fix the position so when we scroll it stays fixed
+                var speedMultiplier = parallaxElements[id].speed || 1;
+                var pos = (windowHeight - parallaxElements[id].start);
+                $(parallaxElements[id].elm).css({
+                    position: 'fixed',
+                    top: pos + 'px'
+//                    left: '50%',
+//                    marginLeft: -(parallaxElements[id].width / 2) + 'px'
+                });
+            } else if (viewportOffsetBottom > parallaxElements[id].stop) {
+                // scrolled past the stop value, make position relative again
+                $(parallaxElements[id].elm).css({
+                    position: 'relative',
+                    top: (parallaxElements[id].stop - parallaxElements[id].start) + 'px',
+                    left: 'auto',
+                    marginLeft: 'auto'
+                });
+            } else if (viewportOffsetBottom < parallaxElements[id].start) {
+                // scrolled up back past the start value, reset position
+                $(parallaxElements[id].elm).css({
+                    position: 'relative',
+                    top: 0,
+                    left: 'auto',
+                    marginLeft: 'auto'
+                });
+            }
+        }
+    }
+
+    function setUpColorAnimation()
+    {
+        var scroll_pos = 0;
+        var animation_begin_pos = 0;
+        var animation_end_pos = window.innerHeight;
+        var beginning_color = new $.Color('rgb(255,255,255)');
+        var ending_color = new $.Color('rgb(184,20,20)');
+        $(document).scroll(function ()
+        {
+            scroll_pos = $(this).scrollTop();
+            if (scroll_pos >= animation_begin_pos && scroll_pos <= animation_end_pos) {
+                var percentScrolled = scroll_pos / ( animation_end_pos - animation_begin_pos );
+                var newRed = beginning_color.red() + ( ( ending_color.red() - beginning_color.red() ) * percentScrolled );
+                var newGreen = beginning_color.green() + ( ( ending_color.green() - beginning_color.green() ) * percentScrolled );
+                var newBlue = beginning_color.blue() + ( ( ending_color.blue() - beginning_color.blue() ) * percentScrolled );
+                var newColor = new $.Color(newRed, newGreen, newBlue);
+                $('.sticky-nav').animate({ backgroundColor: newColor }, 0);
+            } else if (scroll_pos > animation_end_pos) {
+                $('.sticky-nav').animate({ backgroundColor: ending_color }, 0);
+            } else if (scroll_pos < animation_begin_pos) {
+                $('.sticky-nav').animate({ backgroundColor: beginning_color }, 0);
+            } else {
+            }
+        });
+
+    }
+
+    function setUpView()
+    {
+        $('.affix-nav').affix({
+            offset: {
+                top: window.innerHeight + 66, bottom: 0
+            }
+        });
+
+        $('body').scrollspy({ target: '#affix-nav', offset: 300 });
+
+        $(window).scroll(function ()
+        {
+            if ($(window).scrollTop() > 1.5 * window.innerHeight) {
+                $('.scroll-top-link').show();
+            } else {
+                $('.scroll-top-link').hide();
+            }
+        });
+
+
+        setUpColorAnimation();
+    }
+
+    draw_canvas_background();
+    //    live_background();
+
+    $(function ()
+    {
+        setUpParallax();
+        setUpView();
+    });
+
+    var updateLayout = _.debounce(function (e)
+    {
+        console.log('update layout after resize');
+//        draw_canvas_background();
+        $(function ()
+        {
+            /*TODO fixes other updates after resize*/
+//            updateParallaxVars();
+//            setUpView();
+            setUpColorAnimation();
+//            setUpParallax()
+
+        });
+    }, 500); // Maximum run of once per 500 milliseconds
+    // Add the event listener
+    window.addEventListener("resize", updateLayout, false);
+
+</script>
