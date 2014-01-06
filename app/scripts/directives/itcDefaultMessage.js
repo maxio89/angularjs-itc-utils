@@ -38,7 +38,7 @@ angular.module('angularjsItcUtilsApp').directive('itcDefaultMessage', function (
                     if (field.$valid || field.$pristine) {
                         hideMessage(input);
                     }
-                }, 100);
+                }, 200);
             });
 
             var createMessage = function (input)

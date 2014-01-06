@@ -27,9 +27,9 @@
 <![endif]-->
 
 <!-- Add your site or application content here -->
-<div id="contentWrapper" class="container" ng-view="">
-
-</div>
+<ng-view>
+    <div id="contentWrapper" class=""></div>
+</ng-view>
 
 <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
 <script>
@@ -51,6 +51,9 @@
 </script>
 
 <script src="bower_components/jquery/jquery.js"></script>
+<script src="bower_components/jquery-color/jquery.color.js"></script>
+<script src="bower_components/jquery.smooth-scroll/jquery.smooth-scroll.min.js"></script>
+<script src="bower_components/underscore/underscore-min.js"></script>
 <script src="bower_components/angular/angular.js"></script>
 
 <!-- build:js scripts/vendor/bootstrap.js -->
@@ -81,6 +84,7 @@
 <script src="scripts/directives/itcValidationMessages.js"></script>
 <script src="scripts/directives/itcDefaultMessage.js"></script>
 <script src="scripts/directives/itcValidate.js"></script>
+<script src="scripts/directives/itcScrollTo.js"></script>
 <!-- endbuild -->
 </body>
 </html>

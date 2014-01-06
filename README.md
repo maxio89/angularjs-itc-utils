@@ -2,7 +2,7 @@ angularjs-itc-utils
 ===================
 [![Build Status](https://travis-ci.org/maxio89/angularjs-itc-utils.png?branch=master)](https://travis-ci.org/maxio89/angularjs-itc-utils)
 
-## To start project
+## To run a project
 
 <pre><code>npm install </code></pre>
 <pre><code>bower install</code></pre>
@@ -38,6 +38,10 @@ Default messages are taking from ValidationMessages constant list, but you can c
 Where error_key is a name of error key from $error table.
 ##### Example:
 <pre> <code class="html"> &lt;input type="email" minlength-message="Provide longer email"&gt;</code> </pre>
+
+#### TODO's:
+- Add button to reset form in demo;
+- Hide popovers i.a. when windows is resizing;
 
 
 	

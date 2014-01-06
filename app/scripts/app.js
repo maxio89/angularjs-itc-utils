@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('angularjsItcUtilsApp', [
-            'ngResource', 'ngRoute'
+            'ngResource', 'ngRoute', 'itcValidate'
         ]).config(function ($routeProvider)
         {
             $routeProvider.when('/', {

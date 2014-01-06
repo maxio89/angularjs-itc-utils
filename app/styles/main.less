@@ -18,76 +18,66 @@ form .popover-content {
   /*min-height: 54px;*/
 }
 
+@popover-error-color: #b94a48;
+@popover-valid-color: #468847;
+
 .popover.error {
-  border: 1px solid #b94a48;
+  border: 1px solid @popover-error-color;
 }
 
-.popover.error.right .arrow {
-  border-right-color: #b94a48;
+.popover.error {
+  &.right .arrow {
+    border-right-color: @popover-error-color;
+  }
+
+  &.left .arrow {
+    border-left-color: @popover-error-color;
+  }
+
+  &.top .arrow {
+    border-top-color: @popover-error-color;
+  }
+
+  &.bottom .arrow {
+    border-bottom-color: @popover-error-color;
+  }
 }
 
-.popover.error.left .arrow {
-  border-left-color: #b94a48;
-}
-
-.popover.error.top .arrow {
-  border-top-color: #b94a48;
-}
-
-.popover.error.bottom .arrow {
-  border-bottom-color: #b94a48;
-}
-
-.popover.popoverDanger {
-  background-color: #f2dede;
-  border-color: #ebccd1;
-  color: #b94a48;
-}
-
-.popover.right.popoverDanger .arrow {
-  border-right-color: #ebccd1;
-}
-
-.popover.right.popoverDanger .arrow:after {
-  border-right-color: #f2dede;
-}
-
-
-#registerForm {
-  input.ng-valid.ng-dirty {
-    border-color: #468847;
+#registerForm input, #registerForm3 input {
+  &.ng-valid.ng-dirty {
+    border-color: @popover-valid-color;
     -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   }
 
-  input.ng-valid.ng-dirty:focus {
+  &.ng-valid.ng-dirty:focus {
     border-color: #356635;
     -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #7aba7b;
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #7aba7b;
   }
 
-  input.ng-invalid.ng-dirty {
+  &.ng-invalid.ng-dirty {
     border-color: #b94a48;
     -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   }
 
-  input.ng-invalid.ng-dirty:focus {
-    border-color: #953b39;
+  &.ng-invalid.ng-dirty:focus {
+    border-color: @popover-error-color;
     -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #d59392;
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #d59392;
   }
 }
 
-#registerForm2, #registerForm3 {
-  input.ng-valid.ng-dirty:not(:focus) {
-    border-color: #468847;
+#registerForm2 input {
+  &.ng-valid.ng-dirty:not(:focus) {
+    border-color: @popover-valid-color;
     -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   }
 
-  input.ng-invalid.ng-dirty:not(:focus) {
-    border-color: #b94a48;
+  &.ng-invalid.ng-dirty:not(:focus) {
+    border-color: @popover-error-color;
     -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   }
@@ -103,9 +93,11 @@ form .popover-content {
   }
 }
 
-#login-holder .panel {
+.panel {
   position: relative;
-  margin-top: 20%;
+  margin-top: 10%;
+  width: 60%;
+  margin-left: 20%;
 }
 
 div[itc-messages] {
@@ -126,6 +118,232 @@ div[itc-messages] .alert {
 
 .alert-info {
   font-size: 22px;
+}
+
+@red: #b81414;
+
+@small-text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+@large-text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+@transition-default: all 0.2s linear;
+
+@sticky-nav-height: 66px;
+
+html, body {
+  height: 100%;
+  font-family: 'Open Sans';
+}
+
+@-webkit-keyframes arrow-fade {
+  from {
+    bottom: 48px;
+    opacity: 0;
+  }
+  5% {
+    opacity: 1;
+  }
+  to {
+    bottom: 0;
+    opacity: 0;
+  }
+}
+
+@-moz-keyframes arrow-fade {
+  from {
+    bottom: 48px;
+    opacity: 0;
+  }
+  5% {
+    opacity: 1;
+  }
+  to {
+    bottom: 0;
+    opacity: 0;
+  }
+}
+
+@keyframes arrow-fade {
+  from {
+    bottom: 48px;
+    opacity: 0;
+  }
+  5% {
+    opacity: 1;
+  }
+  to {
+    bottom: 0;
+    opacity: 0;
+  }
+}
+
+.section-intro {
+  position: relative;
+  min-height: 100%;
+  background: -webkit-canvas(background_canvas) @red;
+  background-attachment: fixed;
+  //  background-color: @red;
+  //  background-position: center center;
+  //  background-attachment: scroll;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+}
+
+.section-intro h1 {
+  font-size: 60px;
+  line-height: 80px;
+  font-weight: 700;
+  text-shadow: @large-text-shadow;
+  text-align: center;
+  color: #fff;
+  padding: 16%;
+  margin: 0;
+}
+
+.section-intro:before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  margin-left: -12px;
+  z-index: 1;
+  width: 50px;
+  height: 50px;
+  border: 0 solid #fff;
+  border-width: 0 8px 8px 0;
+  opacity: 0;
+  animation: arrow-fade 1.5s 0.5s 1 linear;
+  transform: rotate(45deg) translate3d(0, 0, 0);
+}
+
+.section-intro:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  //  background-color: rgba(0, 0, 0, 0.25);
+}
+
+.itcrowd-link {
+  float: left;
+  margin: 5px 12px;
+  background: url('../images/itcrowd_logo.png');
+  height: 56px;
+  width: 37px;
+  opacity: 0.6;
+  transition: @transition-default;
+}
+
+.github-link {
+  float: right;
+  margin: 5px 12px;
+  background: url('../images/github_logo.png');
+  height: 56px;
+  width: 57px;
+  opacity: 0.6;
+  transition: @transition-default;
+}
+
+.itcrowd-link:hover,
+.github-link:hover {
+  opacity: 1;
+}
+
+.sticky-nav {
+  height: @sticky-nav-height;
+  background-color: @red;
+  width: 100%;
+  z-index: 2000;
+}
+
+.affix-nav.affix {
+  top: 20%;
+}
+
+header {
+  height: @sticky-nav-height;
+}
+
+.affix-nav {
+  border-radius: 3px;
+  background-color: @red;
+  padding: 12px 0;
+  width: 260px;
+}
+
+.affix-nav > .nav > li > a:hover,
+.affix-nav > .nav > li.active > a {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+.affix-nav > .nav > li > a {
+  padding: 22px 22px 22px 24px;
+  font-size: 16px;
+  color: #fff;
+  text-shadow: @small-text-shadow;
+  background-color: @red;
+  transition: @transition-default;
+  margin-bottom: 1px;
+}
+
+::selection {
+  background-color: @red;
+  color: #fff;
+}
+
+.container {
+  padding-top: 10%;
+}
+
+.github-fork-ribbon:hover {
+  opacity: 1;
+}
+
+.github-fork-ribbon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  border: 0;
+  z-index: 1;
+  opacity: 0.9;
+  transition: @transition-default;
+}
+
+.docs-section {
+  padding: 12% 10%;
+}
+
+.angularjs-logo-link:hover {
+  opacity: 1;
+}
+
+.angularjs-logo-link {
+  z-index: 1;
+  position: relative;
+  transition: @transition-default;
+  opacity: 0.8;
+}
+
+.scroll-top-link:hover {
+  opacity: 1;
+}
+
+.scroll-top-link {
+  content: "";
+  position: fixed;
+  bottom: 10px;
+  right: 40px;
+  z-index: 1;
+  width: 50px;
+  height: 50px;
+  border: 0 solid #b81414;
+  border-width: 0 8px 8px 0;
+  opacity: 0.6;
+  transform: rotate(-135deg) translate3d(0, 0, 0);
+  cursor: pointer;
+  transition: @transition-default;
+  display: none;
 }
 
 
