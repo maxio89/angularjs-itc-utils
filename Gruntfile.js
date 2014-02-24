@@ -1,4 +1,3 @@
-// Generated on 2013-12-08 using generator-angular 0.6.0
 'use strict';
 
 // # Globbing
@@ -290,28 +289,31 @@ module.exports = function (grunt)
         // By default, your `index.html`'s <!-- Usemin block --> will take care of
         // minification. These next options are pre-configured if you do not wish
         // to use the Usemin blocks.
-        // cssmin: {
-        //   dist: {
-        //     files: {
-        //       '<%= yeoman.dist %>/styles/main.css': [
-        //         '.tmp/styles/{,*/}*.css',
-        //         '<%= yeoman.app %>/styles/{,*/}*.css'
-        //       ]
-        //     }
-        //   }
-        // },
-        // uglify: {
-        //   dist: {
-        //     files: {
-        //       '<%= yeoman.dist %>/scripts/scripts.js': [
-        //         '<%= yeoman.dist %>/scripts/scripts.js'
-        //       ]
-        //     }
-        //   }
-        // },
-        // concat: {
-        //   dist: {}
-        // },
+        cssmin: {
+            dist: {
+                files: {
+                    '<%= yeoman.dist %>/styles/main.css': [
+                        '.tmp/styles/{,*/}*.css', '<%= yeoman.app %>/styles/{,*/}*.css'
+                    ]
+                }
+            }
+        },
+        uglify: {
+            dist: {
+                options: {
+                    sourceMap: true,
+                    sourceMapIncludeSources: true
+                },
+                files: {
+                    '<%= yeoman.dist %>/scripts/scripts.js': [
+                        '<%= yeoman.dist %>/scripts/scripts.js'
+                    ]
+                }
+            }
+        },
+        concat: {
+            dist: {}
+        },
 
         // Test settings
         karma: {
@@ -329,6 +331,21 @@ module.exports = function (grunt)
                 files: {
                     '<%= yeoman.app %>/styles/main.css': '<%= yeoman.app %>/styles/main.less'
                 }
+            }
+        },
+        bump: {
+            options: {
+                files: ["source/*.js", "spec/*.js"],
+                updateConfigs: ["pkg"],
+                commit: true,
+                commitMessage: 'Release v%VERSION%',
+                commitFiles: ['-a'],
+                createTag: true,
+                tagName: 'v%VERSION%',
+                tagMessage: 'Version %VERSION%',
+                push: false,
+                pushTo: 'upstream',
+                gitDescribeOptions: '--tags --always --abbrev=1 --dirty=-d' // options to use with '$ git describe'
             }
         }
     });
@@ -375,7 +392,6 @@ module.exports = function (grunt)
         'newer:jshint', 'test', 'build'
     ]);
 
-//  grunt.loadNpmTasks('grunt-connect-proxy');
-//  grunt.loadNpmTasks('grunt-contrib-less');
+    require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
 
 };

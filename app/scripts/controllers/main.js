@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('angularjsItcUtilsApp').controller('MainCtrl', function ($scope)
+angular.module('angularjsItcUtils').controller('MainCtrl', function ($scope)
 {
     $scope.awesomeThings = [
         'HTML5 Boilerplate', 'AngularJS', 'Karma'

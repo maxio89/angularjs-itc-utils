@@ -1,6 +1,9 @@
 {
   "name": "angularjs-itc-utils",
-  "version": "0.0.0",
+  "version": "0.0.1",
+  "license": "",
+  "description": "",
+  "main": "",
   "dependencies": {
     "angular": "~1.2.0",
     "json3": "~3.2.4",
@@ -12,10 +15,37 @@
     "font-awesome": "~4.0.3",
     "jquery-color": "~2.1.2",
     "jquery.smooth-scroll": "~1.4.13",
-    "underscore": "~1.5.2"
+    "underscore": "~1.5.2",
+    "ladda": "~0.9.2",
+    "angularjs-itc-utils": "git://github.com/maxio89/angularjs-itc-utils#~0.0.1"
   },
   "devDependencies": {
     "angular-mocks": "~1.2.0",
-    "angular-scenario": "~1.2.0"
-  }
+    "angular-scenario": "~1.2.0",
+    "angularjs-itc-utils": "git://github.com/maxio89/angularjs-itc-utils#~0.0.1"
+  },
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "app/bower_components",
+    "images",
+    "views",
+    "test",
+    "*.html",
+    "source",
+    "spec",
+    ".bowerrc",
+    ".gitignore",
+    ".gitattributes",
+    ".editorconfig",
+    ".travis.yml",
+    "karma.conf.js",
+    "karma-e2e.conf.js",
+    ".jshintignore",
+    ".jshintrc",
+    "bower.json",
+    "Gruntfile.js",
+    "package.json",
+    "README.md"
+  ]
 }
