@@ -1,0 +1,35 @@
+{
+  "name": "angularjs-itc-utils",
+  "license": "MIT",
+  "authors": [
+    "Piotr Kozlowski <piotr.kozlowski@itcrowd.pl>"
+  ],
+  "description": "Set of AngularJS custom utilities",
+  "main": "angularjs-itc-utils.js",
+  "dependencies": {
+    "angular": "~1.2.0",
+    "jquery": "~2.0.3",
+    "bootstrap": "latest",
+    "ladda": "~0.9.2"
+  },
+  "devDependencies": {
+    "angular-mocks": "~1.2.0",
+    "angular-scenario": "~1.2.0"
+  },
+  "keywords": [
+    "angularjs",
+    "itcrowd",
+    "javascript"
+  ],
+  "homepage": "http://maxio89.github.io/angularjs-itc-utils",
+  "_release": "110de19621",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "110de1962155f45743fdd17876553eb786472855"
+  },
+  "_source": "git://github.com/maxio89/angularjs-itc-utils.git",
+  "_target": "*",
+  "_originalSource": "git://github.com/maxio89/angularjs-itc-utils",
+  "_direct": true
+}

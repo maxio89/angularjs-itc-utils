@@ -20,6 +20,5 @@
   },
   "_source": "git://github.com/kswedberg/jquery-smooth-scroll.git",
   "_target": "~1.4.13",
-  "_originalSource": "jquery.smooth-scroll",
-  "_direct": true
+  "_originalSource": "jquery.smooth-scroll"
 }

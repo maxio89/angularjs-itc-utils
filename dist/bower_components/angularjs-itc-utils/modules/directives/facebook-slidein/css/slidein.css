@@ -1,0 +1,38 @@
+.fb-slidein-left, .fb-slidein-right {
+    background: transparent url("../img/sprite.png") no-repeat scroll;
+    margin-top: -220px;
+    padding: 10px;
+    position: fixed;
+    top: 50%;
+    z-index: 99;
+    box-sizing: border-box;
+}
+
+.fb-slidein-right {
+    background-position: 0 0;
+    width: 280px;
+    height: 475px;
+    right: 0;
+}
+
+.fb-slidein-left {
+    background-position: 0 -480px;
+    width: 280px;
+    height: 475px;
+    left: 0;
+}
+
+.fb-slidein-inner {
+    height: 422px;
+    overflow: hidden;
+    margin-top: -7px;
+    box-sizing: content-box;
+}
+
+.fb-slidein-left .fb-slidein-inner {
+    padding-right: 30px;
+}
+
+.fb-slidein-right .fb-slidein-inner {
+    padding-left: 30px;
+}
