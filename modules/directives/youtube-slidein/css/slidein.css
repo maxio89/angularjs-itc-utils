@@ -1,0 +1,78 @@
+.youtube-slidein-left .anchor .icon, .youtube-slidein-right .anchor .icon {
+    background: transparent url("../img/youtube.gif") no-repeat scroll;
+    display: block;
+    width: 41px;
+    height: 41px;
+}
+
+.youtube-slidein-left .anchor {
+    right: -8px;
+    padding: 5px 5px 5px 12px;
+}
+
+.youtube-slidein-right .anchor {
+    left: -40px;
+    padding: 5px 12px 5px 8px;
+}
+
+.youtube-slidein-left .anchor, .youtube-slidein-right .anchor {
+    background: #fff;
+    display: block;
+    width: 50px;
+    height: 45px;
+    position: absolute;
+    top: 0;
+    box-shadow: 2px 1px 2px 0 #d1d1d1;
+    border-radius: 0 4px 4px 0;
+
+}
+
+.youtube-slidein-left, .youtube-slidein-right {
+    padding: 10px;
+    position: fixed;
+    top: 50%;
+    z-index: 99;
+    box-sizing: border-box;
+}
+
+.youtube-slidein-right {
+    width: 280px;
+}
+
+.youtube-slidein-left {
+    width: 280px;
+}
+
+.youtube-slidein-inner {
+    overflow: hidden;
+    margin-top: -7px;
+    box-sizing: content-box;
+    padding: 10px;
+    background-color: #ffffff;
+}
+
+.youtube-slidein-left .youtube-slidein-inner, .youtube-slidein-left .anchor {
+    box-shadow: 2px 1px 2px 0 #d1d1d1;
+    border-radius: 0 4px 4px 0;
+}
+
+.youtube-slidein-left .youtube-slidein-inner, .youtube-slidein-right .youtube-slidein-inner {
+    margin-right: 30px;
+}
+
+.youtube-slidein-right .youtube-slidein-inner, .youtube-slidein-right .anchor {
+    box-shadow: -2px 1px 2px 0 #d1d1d1;
+    border-radius: 4px 0 0 4px;
+}
+
+.youtube-slidein-inner h4 {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-bottom: .5em;
+}
+
+.youtube-slidein-inner img {
+    float: left;
+    vertical-align: top;
+    margin-right: 1em;
+}

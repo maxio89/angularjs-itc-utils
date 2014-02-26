@@ -1,8 +1,7 @@
 node_modules
 dist/bower_components/font-awesome/src/
 .tmp
-app/bower_components
+bower_components
 .idea
 *.iml
-api-settings.js
 

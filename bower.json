@@ -1,7 +1,54 @@
 {
-    "name": "angularjs-itc-utils",
-    "version": "0.0.1",
-    "main": "./angularjs-itc-utils.js",
-    "dependencies": {},
-    "homepage": "http://maxio89.github.io/angularjs-itc-utils"
+  "name": "angularjs-itc-utils",
+  "version": "0.0.1",
+  "license": "MIT",
+  "authors": [
+    "Piotr Kozlowski <piotr.kozlowski@itcrowd.pl>"
+  ],
+  "description": "Set of AngularJS custom utilities",
+  "main": "./dist/scripts/angularjs-itc-utils.min.js",
+  "dependencies": {
+    "angular": "~1.2.13",
+    "bootstrap": "latest",
+    "jquery": "~2.0.3",
+    "ladda": "~0.9.2",
+    "jquery-ui": "~1.10.4",
+    "angular-http-auth": "~1.2.1",
+    "angular-ui-bootstrap": "~0.10.0",
+    "angular-ui-sortable": "~0.12.1",
+    "angular-ui-slider": "~0.0.1",
+    "angular-resource": "~1.2.13",
+    "angular-route": "~1.2.13",
+    "angular-cookies": "~1.2.13",
+    "showdown": "~0.3.1"
+  },
+  "devDependencies": {
+    "angular-mocks": "~1.2.13",
+    "angular-scenario": "~1.2.13"
+  },
+  "keywords": [
+    "angularjs",
+    "angular",
+    "directives",
+    "itcrowd",
+    "itcrowd.pl",
+    "javascript"
+  ],
+  "homepage": "http://maxio89.github.io/angularjs-itc-utils",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    ".bowerrc",
+    ".gitignore",
+    ".gitattributes",
+    ".travis.yml",
+    "karma.conf.js",
+    "karma-e2e.conf.js",
+    ".jshintignore",
+    ".jshintrc",
+    "Gruntfile.js",
+    "package.json"
+  ]
 }
