@@ -55,5 +55,5 @@
         };
     }
 
-    angular.module('restbase.directives').directive('itcYoutubeSlidein', itcYoutubeSlidein);
+    angular.module('pl.itcrowd.directives').directive('itcYoutubeSlidein', itcYoutubeSlidein);
 })();

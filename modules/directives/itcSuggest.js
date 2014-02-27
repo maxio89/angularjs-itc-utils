@@ -34,5 +34,5 @@
     }
 
     //noinspection JSValidateTypes
-    angular.module('restbase.directives').directive('itcSuggest', ['$timeout', itcSuggest]);
+    angular.module('pl.itcrowd.directives').directive('itcSuggest', ['$timeout', itcSuggest]);
 })();

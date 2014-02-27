@@ -29,5 +29,5 @@
     }
 
     //noinspection JSValidateTypes
-    angular.module('restbase.directives').directive('itcShowdown', ['$showdown', itcShowdown]);
+    angular.module('pl.itcrowd.directives').directive('itcShowdown', ['$showdown', itcShowdown]);
 })();
