@@ -1,3 +1,2 @@
-angular.module('pl.itcrowd.directives', [
-]);
+angular.module('pl.itcrowd.directives', ['pl.itcrowd.constants']);
 

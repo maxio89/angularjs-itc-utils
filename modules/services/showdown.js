@@ -9,5 +9,5 @@
         return new Showdown.converter();
     }
 
-    angular.module('restbase.services').factory('$showdown', $showdown);
+    angular.module('pl.itcrowd.services').factory('$showdown', $showdown);
 })();
