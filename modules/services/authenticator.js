@@ -158,8 +158,7 @@
     /**
      * Authenticator must be in different module than ExceptionHandler.
      */
-    var module = angular.module('pl.itcrowd.services.auth', []);
     //noinspection JSValidateTypes
-    module.factory('Authenticator', ['$http', '$rootScope', 'Base64', Authenticator]);
-    module.factory('Base64', Base64);
+    angular.module('pl.itcrowd.services').factory('Authenticator', ['$http', '$rootScope', 'Base64', Authenticator]);
+    angular.module('pl.itcrowd.services').factory('Base64', Base64);
 })();
