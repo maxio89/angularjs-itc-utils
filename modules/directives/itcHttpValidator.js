@@ -57,5 +57,5 @@
     }
 
     //noinspection JSValidateTypes
-    angular.module('restbase.directives').directive('itcHttpValidator', ['$http', '$timeout', itcHttpValidator]);
+    angular.module('pl.itcrowd.directives').directive('itcHttpValidator', ['$http', '$timeout', itcHttpValidator]);
 })();

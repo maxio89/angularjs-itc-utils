@@ -83,5 +83,5 @@
     }
 
     //noinspection JSValidateTypes
-    angular.module('restbase.directives').directive('itcGoogleTagManager', ['$location', '$rootScope', '$window', itcGoogleTagManager]);
+    angular.module('pl.itcrowd.directives').directive('itcGoogleTagManager', ['$location', '$rootScope', '$window', itcGoogleTagManager]);
 })();

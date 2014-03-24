@@ -22,5 +22,5 @@
         };
     }
 
-    angular.module('restbase.directives').directive('itcForceReload', ['$location', '$route', itcForceReload]);
+    angular.module('pl.itcrowd.directives').directive('itcForceReload', ['$location', '$route', itcForceReload]);
 })();

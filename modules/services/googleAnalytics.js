@@ -37,5 +37,5 @@
         };
     }
 
-    angular.module('restbase.services').factory('GoogleAnalytics', ['$rootScope', GoogleAnalytics]);
+    angular.module('pl.itcrowd.services').factory('GoogleAnalytics', ['$rootScope', GoogleAnalytics]);
 })();

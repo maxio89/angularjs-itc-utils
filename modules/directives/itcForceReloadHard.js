@@ -42,5 +42,5 @@
         };
     }
 
-    angular.module('restbase.directives').directive('itcForceReloadHard', ['$location', '$route', '$window', itcForceReloadHard]);
+    angular.module('pl.itcrowd.directives').directive('itcForceReloadHard', ['$location', '$route', '$window', itcForceReloadHard]);
 })();
